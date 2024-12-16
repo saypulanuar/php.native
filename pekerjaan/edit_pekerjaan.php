@@ -1,11 +1,6 @@
 <?php
-// Termasuk file konfigurasi
 include("../config.php");
-
-// Mengambil ID pekerjaan dari parameter URL
 $pekerjaan_id = $_GET['pekerjaan_id'];
-
-// Mengambil data pekerjaan dari database berdasarkan ID
 $query = $db->query("SELECT * FROM pekerjaan WHERE pekerjaan_id = '$pekerjaan_id'");
 $pekerjaan = $query->fetch_assoc();
 ?>
@@ -17,7 +12,6 @@ $pekerjaan = $query->fetch_assoc();
 <body>
     <h3>Edit Data pekerja</h3>
     <form action="proses_edit.php" method="POST">
-        <!-- Menyimpan ID untuk proses selanjutnya -->
         <input type="hidden" name="pekerjaan_id" value="<?php echo $pekerjaan['pekerjaan_id']; ?>">
         <table border="0">
             <tr>
